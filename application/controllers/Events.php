@@ -9,17 +9,18 @@ class Events extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->database();
+        $this->load->model('event_model');
     }
 
     //
     // Single Event page
     //
 
-    public function single($id)
+    public function single()
     {
-        $data['title'] = "Event #".$id."";
-        $this->load->view('templates/header.php');
+        
+        $data['title'] = "Event | ";
+        $this->load->view('templates/header.php', $data);
         $this->load->view('pages/events/single.php', $data);
         $this->load->view('templates/footer.php', $data);
     }

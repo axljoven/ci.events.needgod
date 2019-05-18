@@ -8,6 +8,11 @@
 
 <div>
     <div class="container mx-auto">
-        <h1>Home page</h1>
+        <h1 class="hidden">Home</h1>
+        <?php 
+        foreach ($events as $key => $event) :
+            include(APPPATH."views/templates/event_card.php");
+        endforeach;
+        ?>
     </div>
 </div>
