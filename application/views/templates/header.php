@@ -9,4 +9,8 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation -->
+    <?php include("navigation.php") ?>
+
+    <!-- Main -->
     <main id="main">
