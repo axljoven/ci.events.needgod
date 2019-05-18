@@ -53,4 +53,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'init/login';
 $route['event/(:any)'] = 'events/single/$1';
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'init';
