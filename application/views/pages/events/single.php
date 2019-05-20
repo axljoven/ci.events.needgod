@@ -41,5 +41,8 @@
                 <?php echo $event['date']; ?>
             </div>
         </article>
+
+        <!-- Registration form -->
+        <?php include('reg-form.php') ?>
     </div>
 </div>

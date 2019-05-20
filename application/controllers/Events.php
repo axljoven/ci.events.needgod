@@ -10,6 +10,7 @@ class Events extends CI_Controller
     {
         parent::__construct();
         $this->load->model('event_model');
+        $this->load->library('form_validation');
     }
 
     //
