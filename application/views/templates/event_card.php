@@ -20,16 +20,10 @@
             <?php echo $event['venue'] ?>
         </div>
 
-        <!-- Venue -->
+        <!-- Time and Date -->
         <div class="border-l-4 border-color-100 pl-4 mb-4">
-            <h2 class="font-bold mb-1 text-sm">Date(s)</h2>
-            
-            <?php 
-            if ($event['date_start'] == $event['date_end']) :
-                echo "<p>".$event['date_start']."</p>";
-            else: 
-                echo "<p>".$event['date_start']." - ". $event['date_end']."</p>";
-            endif; ?>
+            <h2 class="font-bold mb-1 text-sm">Date and Time</h2>
+            <?php echo $event['date']; ?>
         </div>
     </article>
 </div>
