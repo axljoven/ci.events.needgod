@@ -19,25 +19,25 @@
 
             <!-- Speakers -->
             <div class="mb-4">
-                <h2 class="font-bold mb-1 text-sm">Speaker(s)</h2>
+                <h2 class="font-bold mb-1 text-sm"><i class="fas fa-user-friends fa-fw fa-lg text-red-600 mr-2"></i> Speaker(s)</h2>
                 <?php echo $event['speakers'] ?>
             </div>
 
             <!-- Reg fee -->
             <div class="mb-4">
-                <h2 class="font-bold mb-1 text-sm">Registration fee</h2>
+                <h2 class="font-bold mb-1 text-sm"><i class="fas fa-money-bill-alt fa-fw fa-lg text-red-600 mr-2"></i> Registration fee</h2>
                 <?php echo $event['reg_fee_details'] ?>
             </div>
             
             <!-- Venue -->
             <div class="mb-4">
-                <h2 class="font-bold mb-1 text-sm">Venue</h2>
+                <h2 class="font-bold mb-1 text-sm"><i class="far fa-map fa-fw fa-lg text-red-600 mr-2"></i> Venue</h2>
                 <?php echo $event['venue'] ?>
             </div>
 
             <!-- Time and Date -->
             <div class="mb-4">
-                <h2 class="font-bold mb-1 text-sm">Date and Time</h2>
+                <h2 class="font-bold mb-1 text-sm"><i class="far fa-calendar-alt fa-fw fa-lg text-red-600 mr-2"></i> Date and Time</h2>
                 <?php echo $event['date']; ?>
             </div>
         </article>
