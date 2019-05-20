@@ -7,7 +7,7 @@
 ?>
 
 <div>
-    <div class="container mx-auto">
-        <h1>Login page</h1>
-    </div>
+	<div class="container mx-auto">
+		<h1>Login page</h1>
+	</div>
 </div>

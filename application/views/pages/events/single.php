@@ -28,8 +28,7 @@
 			<!-- Reg fee -->
 			<div class="mb-4">
 				<h2 class="font-bold mb-1 text-sm">
-					<i class="fas fa-money-bill-alt fa-fw fa-lg text-red-600 mr-2"></i> Registration
-					fee
+					<i class="fas fa-money-bill-alt fa-fw fa-lg text-red-600 mr-2"></i> Registration fee
 				</h2>
 				<p class=""><?php echo $event['reg_fee_details'] ?></p>
 			</div>
