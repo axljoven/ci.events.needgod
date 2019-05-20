@@ -8,7 +8,7 @@
 
 <div>
     <div class="container mx-auto px-6">
-        <article>
+        <article class="mb-8 pb-6 border-b border-b-gray-100">
             <!-- Title -->
             <h1 class="text-3xl font-bold mb-4"><?php echo $event['title'] ?></h1>
             
