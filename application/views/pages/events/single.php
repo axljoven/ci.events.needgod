@@ -7,7 +7,7 @@
 ?>
 
 <div>
-    <div class="container mx-auto">
+    <div class="container mx-auto px-6">
         <article>
             <!-- Title -->
             <h1 class="text-3xl font-bold mb-4"><?php echo $event['title'] ?></h1>
@@ -19,8 +19,14 @@
 
             <!-- Speakers -->
             <div class="mb-4">
-                <h2 class="font-bold mb-1 text-sm">Venue</h2>
-                <?php echo $event['venue'] ?>
+                <h2 class="font-bold mb-1 text-sm">Speaker(s)</h2>
+                <?php echo $event['speakers'] ?>
+            </div>
+
+            <!-- Reg fee -->
+            <div class="mb-4">
+                <h2 class="font-bold mb-1 text-sm">Registration fee</h2>
+                <?php echo $event['reg_fee_details'] ?>
             </div>
             
             <!-- Venue -->

@@ -7,7 +7,7 @@
 ?>
 
 <div>
-    <div class="container mx-auto">
+    <div class="container mx-auto px-6">
         <h1 class="hidden">Home</h1>
         <?php 
         foreach ($events as $key => $event) :

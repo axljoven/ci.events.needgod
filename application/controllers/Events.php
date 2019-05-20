@@ -24,8 +24,8 @@ class Events extends CI_Controller
             show_404();
         endif;
 
-        $data['title'] = "Event | " . $event['title'];
         $data['event'] = $event;
+        $data['title'] = "Event | " . $data['event']['title'];
         
         $this->load->view('templates/header.php', $data);
         $this->load->view('pages/events/single.php', $data);

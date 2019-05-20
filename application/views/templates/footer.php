@@ -2,8 +2,8 @@
     </main>
 
     <!-- Footer -->
-    <div class="site-footer p-3">
-        <div class="container mx-auto flex flex-inline justify-between">
+    <div class="site-footer py-3">
+        <div class="container mx-auto flex flex-inline justify-between px-6">
             <p class="text-sm">
                 &copy; Copyright <?php echo date('Y') ?>
             </p>
