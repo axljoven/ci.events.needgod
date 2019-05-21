@@ -9,7 +9,7 @@ class Events extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('event_model');
+		$this->load->model('event_model', 'event');
 		$this->load->library('form_validation');
 	}
 
@@ -19,7 +19,7 @@ class Events extends CI_Controller
 
 	public function single($id)
 	{
-		$event = $this->event_model->fetch($id);
+		$event = $this->event->fetch($id);
 		
 		if (!isset($event) || empty($event)) :
 			show_404();
