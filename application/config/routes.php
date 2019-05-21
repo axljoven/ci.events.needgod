@@ -56,8 +56,8 @@ $route['login'] = 'init/login';
 $route['event/(:any)']['get'] = 'events/single/$1';
 $route['event/(:any)']['post'] = 'registrant/register/$1';
 
-$route['admin'] = 'dashboard';
-$route['admin/posts'] = 'posts/index';
-$route['admin/posts/(:any)'] = 'posts/single/$1';
+$route['dashboard'] = 'dashboard';
+$route['dashboard/posts'] = 'events/index';
+// $route['admin/posts/(:any)'] = 'posts/single/$1';
 
 $route['default_controller'] = 'init';

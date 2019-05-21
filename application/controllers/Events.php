@@ -32,4 +32,14 @@ class Events extends CI_Controller
 		$this->load->view('pages/events/single.php', $data);
 		$this->load->view('templates/footer.php', $data);
 	}
+
+	// 
+	// NOTE: DASHBOARD FUNCTION
+	// Get event count
+	// 
+
+	public function get_events_count()
+	{
+
+	}
 }
