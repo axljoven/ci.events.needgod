@@ -1,14 +1,13 @@
 <div class="">
 	<h2 class="text-3xl mb-4">Registration</h2>
 
-	<?php 
-    // Input classes 
-    $label = "block text-sm mb-2";
-    $input_container = "w-full mb-4 px-6";
-    $input_container_2_cols = "w-full sm:w-full md:w-1/2 mb-4 px-6";
-    $input_container_3_cols = "w-full sm:w-full md:w-1/3 mb-4 px-6";
-    $input_form = "border border-gray-400 w-full py-2 px-3 text-gray-700 text-sm";
-    ?>
+	<?php // Input classes 
+	$label = "block text-sm mb-2";
+	$input_container = "w-full mb-4 px-6";
+	$input_container_2_cols = "w-full sm:w-full md:w-1/2 mb-4 px-6";
+	$input_container_3_cols = "w-full sm:w-full md:w-1/3 mb-4 px-6";
+	$input_form = "border border-gray-400 w-full py-2 px-3 text-gray-700 text-sm";
+	?>
 
 	<!-- Validation and form opening -->
 	<?php if (validation_errors()) : ?>
@@ -18,10 +17,15 @@
 	<?php endif; ?>
 
 	<!-- Form -->
-	<?php echo form_open('event/'.$event['id']); ?>
+	<?php // Starts form
+	echo form_open('event/'.$event['id']); ?>
 	
 	<!-- HEADER: Personal information -->
 	<h3 class="text-2xl mb-4">Personal Information</h3>
+
+	<?php // Holds the Event ID
+	form_hidden('event_id', $event['id']); 
+	?>
 
 	<!-- Row -->
 	<div class="-px-6">
@@ -70,8 +74,8 @@
 			<div class="<?php echo $input_container_3_cols ?>">
 				<label class="<?php echo $label ?>" for="gender">Gender</label>
 				<select class="<?php echo $input_form ?>" id="gender" name="gender">
-					<option>Male</option>
-					<option>Female</option>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
 				</select>
 			</div>
 
@@ -139,5 +143,6 @@
 		</button>
 	</div>
 
-	<?php echo form_close(); ?>
+	<?php // End of form
+	echo form_close(); ?>
 </div>
