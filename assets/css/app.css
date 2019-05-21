@@ -1,0 +1,8 @@
+.icon {
+  width: 25px;
+}
+
+.icon::before {
+  font-size: 1.3rem;
+}
+/*# sourceMappingURL=app.css.map */
