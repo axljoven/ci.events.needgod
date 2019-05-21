@@ -23,9 +23,8 @@
 	<!-- HEADER: Personal information -->
 	<h3 class="text-2xl mb-4">Personal Information</h3>
 
-	<?php // Holds the Event ID
+	<?php // Hidden fields for security purposes
 	echo form_hidden('event_id', $event['id']); ?>
-
 	<input type="hidden" id="email_per_event" name="email_per_event" value="<?php echo $event['id'] ?>_">
 
 	<!-- Row -->

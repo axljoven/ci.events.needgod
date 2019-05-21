@@ -4,9 +4,7 @@
 //
 
 function generate_email_per_event_key(epe_input, email_input) {
-      // Get event id
-      // Get the current value of email_per_event input
-      // Get the current value of email
+      // Get event id and value of email
       let event_id = $('input[name="event_id"]').val();
       let email_value = $.trim($(email_input).val().toLowerCase());
 
@@ -26,6 +24,7 @@ function generate_email_per_event_key(epe_input, email_input) {
 $(document).ready(function () {
       let email_input = $('.event-registration-form form input[name="email"]');
       let epe_input = $('.event-registration-form form #email_per_event');
+      
       generate_email_per_event_key(epe_input, email_input);
 
       $(email_input).on('input propertychange paste', function() {
