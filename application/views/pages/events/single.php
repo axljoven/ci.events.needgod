@@ -19,32 +19,32 @@
 
 			<!-- Speakers -->
 			<div class="mb-4">
-				<h2 class="font-bold mb-1 text-sm">
-					<i class="fas fa-user-friends fa-fw fa-lg text-red-600 mr-2"></i> Speaker(s)
+				<h2 class="font-bold mb-1 text-sm flex items-center">
+					<i class="icon ion-ios-person text-red-600 mr-2"></i> Speaker(s)
 				</h2>
 				<p class=""><?php echo $event['speakers'] ?></p>
 			</div>
 
 			<!-- Reg fee -->
 			<div class="mb-4">
-				<h2 class="font-bold mb-1 text-sm">
-					<i class="fas fa-money-bill-alt fa-fw fa-lg text-red-600 mr-2"></i> Registration fee
+				<h2 class="font-bold mb-1 text-sm flex items-center">
+					<i class="icon ion-ios-pricetag text-red-600 mr-2"></i> Registration fee
 				</h2>
 				<p class=""><?php echo $event['reg_fee_details'] ?></p>
 			</div>
 
 			<!-- Venue -->
 			<div class="mb-4">
-				<h2 class="font-bold mb-1 text-sm">
-					<i class="far fa-map fa-fw fa-lg text-red-600 mr-2"></i> Venue
+				<h2 class="font-bold mb-1 text-sm flex items-center">
+					<i class="icon ion-ios-map text-red-600 mr-2"></i> Venue
 				</h2>
 				<p class=""><?php echo $event['venue'] ?></p>
 			</div>
 
 			<!-- Time and Date -->
 			<div class="mb-4">
-				<h2 class="font-bold mb-1 text-sm">
-					<i class="far fa-calendar-alt fa-fw fa-lg text-red-600 mr-2"></i> Date and Time
+				<h2 class="font-bold mb-1 text-sm flex items-center">
+					<i class="icon ion-ios-calendar text-red-600 mr-2"></i> Date and Time
 				</h2>
 				<p class=""><?php echo $event['date']; ?></p>
 			</div>

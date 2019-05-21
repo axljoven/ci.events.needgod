@@ -10,19 +10,25 @@
 
 		<!-- Speakers -->
 		<div class="border-l-4 border-color-100 pl-4 mb-4">
-			<h2 class="font-bold mb-1 text-sm">Speakers</h2>
+			<h2 class="font-bold mb-1 text-sm flex items-center">
+				<i class="icon ion-ios-person text-red-600 mr-2"></i> Speaker(s) 
+			</h2>
 			<?php echo $event['speakers'] ?>
 		</div>
 
 		<!-- Venue -->
 		<div class="border-l-4 border-color-100 pl-4 mb-4">
-			<h2 class="font-bold mb-1 text-sm">Venue</h2>
+			<h2 class="font-bold mb-1 text-sm flex items-center">
+				<i class="icon ion-ios-map text-red-600 mr-2"></i>  Venue
+			</h2>
 			<?php echo $event['venue'] ?>
 		</div>
 
 		<!-- Time and Date -->
 		<div class="border-l-4 border-color-100 pl-4 mb-4">
-			<h2 class="font-bold mb-1 text-sm">Date and Time</h2>
+			<h2 class="font-bold mb-1 text-sm flex items-center">
+				<i class="icon ion-ios-calendar text-red-600 mr-2"></i> Date and Time
+			</h2>
 			<?php echo $event['date']; ?>
 		</div>
 	</article>
