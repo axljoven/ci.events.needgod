@@ -13,5 +13,9 @@
 			</p>
 		</div>
 	</div>
+
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="<?php echo site_url().'assets/js/reg-form.js' ?>"></script>
 </body>
 </html>

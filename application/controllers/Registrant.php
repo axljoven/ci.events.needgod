@@ -38,6 +38,7 @@ class Registrant extends CI_Controller
 			$data['id'] = $data['event']['id'];
 			
 			// Send email
+			// NOTE: Coming soon!
 			// $this->send_confirm_email();
 			
 			// Save to database
@@ -51,6 +52,7 @@ class Registrant extends CI_Controller
     	}
 
 	//
+	// NOTE: Coming soon!
 	// Send confirmation email
 	//
 

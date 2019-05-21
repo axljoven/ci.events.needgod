@@ -1,4 +1,4 @@
-<div class="">
+<div class="event-registration-form">
 	<h2 class="text-3xl mb-4">Registration</h2>
 
 	<?php // Input classes 
@@ -24,8 +24,9 @@
 	<h3 class="text-2xl mb-4">Personal Information</h3>
 
 	<?php // Holds the Event ID
-	form_hidden('event_id', $event['id']); 
-	?>
+	echo form_hidden('event_id', $event['id']); ?>
+
+	<input type="hidden" id="email_per_event" name="email_per_event" value="<?php echo $event['id'] ?>_">
 
 	<!-- Row -->
 	<div class="-px-6">
@@ -39,8 +40,7 @@
 
 			<!-- First name -->
 			<div class="<?php echo $input_container_2_cols ?>">
-				<label class="<?php echo $label ?>" for="firstname">Firstname <span class="text-red-500">*</span>
-				</label>
+				<label class="<?php echo $label ?>" for="firstname">Firstname <span class="text-red-500">*</span></label>
 				<input class="<?php echo $input_form ?>" id="firstname" name="firstname" placeholder="Enter first name"
 					value="<?php echo set_value('firstname') ?>">
 			</div>
@@ -52,8 +52,7 @@
 		<div class="flex-none md:flex -mx-6">
 			<!-- Middle name -->
 			<div class="<?php echo $input_container_2_cols ?>">
-				<label class="<?php echo $label ?>" for="middlename">Middlename <span class="text-red-500">*</span>
-				</label>
+				<label class="<?php echo $label ?>" for="middlename">Middlename <span class="text-red-500">*</span></label>
 				<input class="<?php echo $input_form ?>" id="middlename" name="middlename"
 					placeholder="Enter middle name" value="<?php echo set_value('middlename') ?>">
 			</div>

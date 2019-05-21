@@ -46,6 +46,14 @@ $config = [
                   'field' => 'role',
                   'label' => 'role',
                   'rules' => 'trim|required|min_length[2]|max_length[6]'
+            ],
+            [
+                  'field' => 'email_per_event',
+                  'label' => 'role',
+                  'errors' => array(
+                        'is_unique' => 'Your email is already registered for this event. Please use another email.',
+                  ),
+                  'rules' => 'trim|required|min_length[2]|is_unique[registrants.email_per_event_key]',
             ]
       ]
 ];

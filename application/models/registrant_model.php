@@ -24,6 +24,24 @@ class Registrant_model extends CI_Model
 	}
 
 	//
+	// Check if duplicate
+	// - Checks first the entry if registrant
+	//   has an existing entry on the same event
+	// - Checks the email and event id
+	//
+
+	// private function isDuplicate($email, $event_id)
+	// {
+	// 	$result = $this->db->get_where('registrants', [
+	// 		'event_id' => $event_id,
+	// 		'email' => $email
+	// 	]);
+
+	// 	return $result->row_array();
+	// }
+
+
+	//
 	// Create/save new registrant
 	//
 
@@ -31,18 +49,26 @@ class Registrant_model extends CI_Model
 	{
 		// automatically gets the $_POST fields
 		$entry = [
-			"firstname" => 		ucwords(strtolower($this->input->post('firstname'))),
-			"middlename" => 		ucwords(strtolower($this->input->post('middlename'))),
-			"lastname" => 		ucwords(strtolower($this->input->post('lastname'))),
-			"nickname" => 		ucwords(strtolower($this->input->post('nickname'))),
-			"gender" => 		strtolower($this->input->post('gender')),
-			"email" => 			strtolower($this->input->post('email')),
-			"mobile_number" => 	$this->input->post('mobile-number'),
-			"church_name" => 		ucwords(strtolower($this->input->post('church-name'))),
-			"church_address" => 	ucwords(strtolower($this->input->post('church-city'))),
-			"role" => 			strtolower($this->input->post('role'))
+			"event_id" 		=> $this->input->post('event_id'),
+			"firstname" 	=> ucwords(strtolower($this->input->post('firstname'))),
+			"middlename" 	=> ucwords(strtolower($this->input->post('middlename'))),
+			"lastname" 		=> ucwords(strtolower($this->input->post('lastname'))),
+			"nickname" 		=> ucwords(strtolower($this->input->post('nickname'))),
+			"gender" 		=> strtolower($this->input->post('gender')),
+			"email" 		=> strtolower($this->input->post('email')),
+			"mobile_number" 	=> $this->input->post('mobile-number'),
+			"church_name" 	=> ucwords(strtolower($this->input->post('church-name'))),
+			"church_address" 	=> ucwords(strtolower($this->input->post('church-city'))),
+			"role" 		=> strtolower($this->input->post('role')),
+			"email_per_event_key" => strtolower($this->input->post('email_per_event'))
 		];
 
-		$this->db->insert('registrants', $entry);
+		// Check if duplicate
+		// if ( empty($this->isDuplicate($entry['email'], $entry['event_id'])) ) :
+			// Save and return true
+			return $this->db->insert('registrants', $entry);
+		// else :
+		// 	return false;
+		// endif;
 	}
 }
