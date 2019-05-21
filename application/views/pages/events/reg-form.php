@@ -8,20 +8,18 @@
     $input_container_2_cols = "w-full sm:w-full md:w-1/2 mb-4 px-6";
     $input_container_3_cols = "w-full sm:w-full md:w-1/3 mb-4 px-6";
     $input_form = "border border-gray-400 w-full py-2 px-3 text-gray-700 text-sm";
-    
     ?>
 
 	<!-- Validation and form opening -->
 	<?php if (validation_errors()) : ?>
-	<div class="validation-errors py-4 px-5 bg-red-600 text-white mb-6">
-		<?php echo validation_errors() ?>
-	</div>
+		<div class="validation-errors py-4 px-5 bg-red-600 text-white text-sm mb-6">
+			<?php echo validation_errors() ?>
+		</div>
 	<?php endif; ?>
 
 	<!-- Form -->
-	<?php // echo form_open('register/'.$event['id']); ?>
-	<?php // echo form_open('event/'.$event['id'].'/register'); ?>
 	<?php echo form_open('event/'.$event['id']); ?>
+	
 	<!-- HEADER: Personal information -->
 	<h3 class="text-2xl mb-4">Personal Information</h3>
 
@@ -123,10 +121,10 @@
 			<div class="<?php echo $input_container ?>">
 				<label class="<?php echo $label ?>" for="role">Role <span class="text-red-500">*</span></label>
 				<select class="<?php echo $input_form ?>" id="role" name="role">
-					<option value="pastor">Pastor</option>
-					<option value="elder">Elder</option>
-					<option value="deacon">Deacon</option>
 					<option value="member">Member</option>
+					<option value="deacon">Deacon</option>
+					<option value="elder">Elder</option>
+					<option value="pastor">Pastor</option>
 					<option value="others">Others</option>
 				</select>
 			</div>
