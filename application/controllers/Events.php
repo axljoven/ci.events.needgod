@@ -10,6 +10,7 @@ class Events extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('event_model', 'event');
+		$this->load->model('registrant_model', 'registrant');
 		$this->load->library('form_validation');
 	}
 
@@ -38,8 +39,20 @@ class Events extends CI_Controller
 	// Get event count
 	// 
 
-	public function get_events_count()
+	public function db_index()
 	{
+		// Fetch events and include register count
+		$events = $this->event->fetch();
+		foreach ($events as $key => $event) :
+			$events[$key]['reg_count'] = $this->registrant->get_count($event['id']);
+		endforeach;
 
+		$data['events'] = $events;
+		$data['title'] = "Dashboard | Events";
+            
+            // Load view
+            $this->load->view('templates/header', $data);
+            $this->load->view('dashboard/events/index', $data);
+            $this->load->view('templates/footer', $data);
 	}
 }

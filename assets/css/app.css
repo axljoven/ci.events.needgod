@@ -5,4 +5,12 @@
 .icon::before {
   font-size: 1.3rem;
 }
+
+.dashboard-sidebar {
+  width: 300px;
+}
+
+.dashboard-main {
+  width: 100%;
+}
 /*# sourceMappingURL=app.css.map */

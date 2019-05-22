@@ -25,4 +25,14 @@ class Event_model extends CI_Model
 		$result = $this->db->get_where('events', ['id' => $id]);
 		return $result->row_array();
 	}
+
+	// 
+	// Get active events
+	// 
+
+	public function get_active_events()
+	{
+		$result = $this->db->get_where('events', ['status' => 'active']);
+		return $result->result_array();
+	}
 }
