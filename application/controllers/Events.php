@@ -34,9 +34,12 @@ class Events extends CI_Controller
 		$this->load->view('templates/footer.php', $data);
 	}
 
-	// 
+	// ======================================================================
 	// NOTE: DASHBOARD FUNCTION
-	// Get event count
+	// ======================================================================
+
+	//
+	// Dashboard's events index page
 	// 
 
 	public function db_index()
@@ -55,4 +58,25 @@ class Events extends CI_Controller
             $this->load->view('dashboard/events/index', $data);
             $this->load->view('templates/footer', $data);
 	}
+
+	//
+	// Dashboard's single event page
+	//
+
+	public function db_single($id)
+	{
+		$event = $this->event->fetch($id);
+		
+		if (!isset($event) || empty($event)) :
+			show_404();
+		endif;
+
+		$data['event'] = $event;
+		$data['title'] = "Dashboard | " . $data['event']['title'];
+		
+		$this->load->view('templates/header.php', $data);
+		$this->load->view('dashboard/events/single.php', $data);
+		$this->load->view('templates/footer.php', $data);
+	}
+
 }

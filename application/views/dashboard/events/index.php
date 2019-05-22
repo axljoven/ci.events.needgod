@@ -15,6 +15,7 @@
                   <h2 class="text-2xl font-bold mb-3">Events</h2>
                   
                   <?php if (count($events) > 0) : foreach ($events as $key => $event) : ?>
+
                               <a href="/dashboard/events/<?php echo $event['id'] ?>">
                                     <article class="card p-6 shadow-md hover:shadow-lg">
                                           <h1 class="text-lg font-bold text-gray-700 flex flex-inline items-center align-center">
@@ -26,10 +27,13 @@
                                           </p>
                                     </article>
                               </a>
+                  
                   <?php endforeach; else : ?>
+                  
                               <article class="card p-8 shadow-md">
                                     <p>No upcoming events.</p>
                               </article>
+                              
                   <?php endif; ?>
             </div>
       </div>

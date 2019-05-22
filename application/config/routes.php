@@ -58,6 +58,6 @@ $route['event/(:any)']['post'] = 'registrant/register/$1';
 
 $route['dashboard'] = 'dashboard';
 $route['dashboard/events'] = 'events/db_index';
-// $route['admin/posts/(:any)'] = 'posts/single/$1';
+$route['dashboard/events/(:any)'] = 'events/db_single/$1';
 
 $route['default_controller'] = 'init';
