@@ -35,11 +35,11 @@ class Events extends CI_Controller
 	}
 
 	// ======================================================================
-	// NOTE: DASHBOARD FUNCTION
+	// NOTE: DASHBOARD FUNCTIONS
 	// ======================================================================
 
-	//
-	// Dashboard's events index page
+	// 
+	// Dashboard's events index page 
 	// 
 
 	public function db_index()
@@ -64,12 +64,15 @@ class Events extends CI_Controller
 	//
 
 	public function db_single($id)
-	{
+	{	
+		// Fetch event
 		$event = $this->event->fetch($id);
-		
 		if (!isset($event) || empty($event)) :
 			show_404();
 		endif;
+
+		// Fetch registrants
+		$data['registrants'] = $this->registrant->get_registrants($id);
 
 		$data['event'] = $event;
 		$data['title'] = "Dashboard | " . $data['event']['title'];
