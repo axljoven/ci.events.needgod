@@ -16,8 +16,10 @@
 
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="https://cloud.tinymce.com/5/tinymce.min.js"></script>
 	<script src="<?php echo site_url().'assets/js/reg-form.js' ?>"></script>
 	<script src="<?php echo site_url().'assets/js/tiny-mce.js' ?>"></script>
+	<script src="<?php echo site_url().'assets/js/datepicker.js' ?>"></script>
 </body>
 </html>

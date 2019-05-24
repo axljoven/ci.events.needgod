@@ -87,6 +87,22 @@
                               <input type="file" name="image" id="image">
                         </div>
 
+                        <!-- Start date -->
+                        <div class="<?php echo $input_container ?>">
+                              <div class="block lg:flex flex-inline -mx-4">
+                                    <div class="w-full px-4 mb-8 lg:mb-0">
+                                          <label class="<?php echo $label ?>" for="date_start">Start date <span class="text-red-500">*</span> </label>
+                                          <input class="<?php echo $input_form ?> datepicker" id="date_start" name="date_start" placeholder="Start date"
+                                                value="<?php echo $event['date_start'] ?>">
+                                    </div>
+                                    <div class="w-full px-4 mb-8 lg:mb-0">
+                                          <label class="<?php echo $label ?>" for="date_end">End date <span class="text-red-500">*</span> </label>
+                                          <input class="<?php echo $input_form ?> datepicker" id="date_end" name="date_end" placeholder="End date"
+                                                value="<?php echo $event['date_end'] ?>">
+                                    </div>
+                              </div> <!-- flex -->
+                        </div>
+
                         <!-- Date details -->
                         <div class="<?php echo $input_container ?>">
                               <label class="<?php echo $label ?>" for="date">Date details <span class="text-red-500">*</span> </label>
@@ -95,6 +111,8 @@
                                           <?php echo $event['date'] ?>
                               </textarea>
                         </div>
+
+                        
 
 
 
