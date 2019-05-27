@@ -13,6 +13,10 @@
                   <?php if (isset($event)) : ?>
                         <!-- Event title -->
                         <h2 class="text-2xl font-bold mb-3"><?php echo $event['title'] ?></h2>
+                        <div class="controls mb-12">
+                              <a href="" class="controls-add"><i class="icon ion-ios-add"></i></a>
+                              <a href="" class="controls-delete"><i class="icon ion-ios-trash"></i></a>
+                        </div>
                   <?php endif; ?>
 
                   <!-- Edit form -->
@@ -128,6 +132,14 @@
                                     placeholder="Date details">
                                           <?php echo $event['date'] ?>
                               </textarea>
+                        </div>
+
+                        <!-- Update button -->
+                        <div class="flex items-center justify-between">
+                              <button class="bg-blue-500 hover:bg-blue-700 uppercase text-sm text-white font-bold py-2 px-6" type="submit"
+                                    name="update">
+                                    Update Event
+                              </button>
                         </div>
 
                   </form>

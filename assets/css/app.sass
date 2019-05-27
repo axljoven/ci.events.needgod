@@ -26,3 +26,38 @@
 .tox.tox-silver-sink.tox-tinymce-aux
       .tox-notifications-container
             display: none
+
+
+// ==================================================================
+// Dashboard single event controls
+// ==================================================================
+
+.dashboard-main
+      .controls
+            display: inline-flex
+
+            &-add,
+            &-delete
+                  border-radius: 4px
+                  background-color: rgba(0,0,0,0.1)
+                  width: 40px
+                  height: 40px
+                  margin-right: 5px
+                  display: flex
+                  justify-content: center
+                  justify-items: center
+                  align-content: center
+                  align-items: center
+                  padding: 10px
+                  transition: all .2s
+
+                  .icon
+                        font-size: 2rem
+                        width: auto
+                        height: auto
+                        color: white
+
+            &-add:hover
+                  background-color: #1abc9c
+            &-delete:hover
+                  background-color: #e74c3c

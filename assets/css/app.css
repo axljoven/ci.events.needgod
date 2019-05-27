@@ -17,4 +17,48 @@
 .tox.tox-silver-sink.tox-tinymce-aux .tox-notifications-container {
   display: none;
 }
+
+.dashboard-main .controls {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.dashboard-main .controls-add, .dashboard-main .controls-delete {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.dashboard-main .controls-add .icon, .dashboard-main .controls-delete .icon {
+  font-size: 2rem;
+  width: auto;
+  height: auto;
+  color: white;
+}
+
+.dashboard-main .controls-add:hover {
+  background-color: #1abc9c;
+}
+
+.dashboard-main .controls-delete:hover {
+  background-color: #e74c3c;
+}
 /*# sourceMappingURL=app.css.map */

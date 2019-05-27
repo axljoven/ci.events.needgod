@@ -11,8 +11,16 @@
             <!-- Main -->
             <div class="dashboard-main p-8">
 
-                  <!-- Events -->
-                  <h2 class="text-2xl font-bold mb-3">Events</h2>
+                  <div class="flex flex-inline">
+                        <!-- Events -->
+                        <h2 class="text-2xl font-bold mb-3">Events</h2>
+                        
+                        <!-- Controls -->
+                        <div class="controls ml-4 mb-8">
+                              <a href="" class="controls-add"><i class="icon ion-ios-add"></i></a>
+                              <!-- <a href="" class="controls-delete"><i class="icon ion-ios-trash"></i></a> -->
+                        </div>
+                  </div>
                   
                   <?php if (count($events) > 0) : foreach ($events as $key => $event) : ?>
 
@@ -35,6 +43,7 @@
                               </article>
                               
                   <?php endif; ?>
+
             </div>
       </div>
 </div>
