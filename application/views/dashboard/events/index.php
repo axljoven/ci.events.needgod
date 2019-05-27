@@ -1,4 +1,3 @@
-
 <div class="dashboard">
       <div class="flex flex-inline">
             <h1 class="hidden">Dashboard: Events</h1>
@@ -12,11 +11,10 @@
             <div class="dashboard-main p-8">
 
                   <!-- Title and controls -->
-                  <div class="flex flex-inline">
-                        <h2 class="text-2xl font-bold mb-3">Events</h2>
-                        <div class="controls ml-4 mb-8">
-                              <a href="" class="controls-add"><i class="icon ion-ios-add"></i></a>
-                        </div>
+                  <h2 class="text-2xl font-bold mb-3">Events</h2>
+
+                  <div class="controls mb-8">
+                        <a href="" class="controls-add"><i class="icon ion-ios-add"></i></a>
                   </div>
                   
                   <!-- Events -->

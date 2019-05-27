@@ -32,13 +32,11 @@
                         <div class="<?php echo $input_container ?>">
                               <label class="<?php echo $label ?>" for="status">Status</label>
                               <select class="<?php echo $input_form ?>" id="status">
-                                    <option value="inactive" 
-                                          selected="<?php echo ($event['status'] === 'inactive') ? 'selected' : '' ?>">
-                                                Inactive
+                                    <option value="inactive" <?php echo ($event['status'] === 'inactive') ? 'selected' : '' ?>>
+                                          Inactive
                                     </option>
-                                    <option value="active" 
-                                          selected="<?php echo ($event['status'] === 'active') ? 'selected' : '' ?>">
-                                                Active
+                                    <option value="active" <?php echo ($event['status'] === 'active') ? 'selected' : '' ?>>
+                                          Active
                                     </option>
                               </select>
                         </div>
