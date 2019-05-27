@@ -72,4 +72,52 @@ class Registrant extends CI_Controller
 
 		// Check if email sending is successful
 	}
+
+	// ======================================================================
+	// NOTE: DASHBOARD FUNCTIONS
+	// ======================================================================
+
+	//
+	// Dashboard's main regigistrants page
+	// NOTE: Only shows the list of events
+	//
+	
+	public function db_index()
+	{
+		// Fetch events and include register count
+		$events = $this->event->fetch();
+		foreach ($events as $key => $event) :
+			$events[$key]['reg_count'] = $this->registrant->get_count($event['id']);
+		endforeach;
+
+		$data['events'] = $events;
+		$data['title'] = 'Dashboard | Registrants';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('dashboard/registrants/index', $data);
+		$this->load->view('templates/footer', $data);
+	}
+		
+	//
+	// Regigistrants page per event
+	// NOTE: Lists all registrants under an event
+	//
+
+	public function db_single($event_id)
+	{	
+		// Get event name
+
+		// Get registrants
+		$data['event'] = $this->event->fetch($event_id);
+		if (empty($data['event'])) :
+			show_404();
+		endif;
+		
+		$data['registrants'] = $this->registrant->get_registrants($event_id);
+		$data['title'] = 'Dashboard | Registrants';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('dashboard/registrants/single', $data);
+		$this->load->view('templates/footer', $data);
+	}
 }

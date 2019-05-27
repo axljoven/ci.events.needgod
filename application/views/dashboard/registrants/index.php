@@ -1,7 +1,7 @@
 
 <div class="dashboard">
       <div class="flex flex-inline">
-            <h1 class="hidden">Dashboard: Events</h1>
+            <h1 class="hidden">Dashboard: Registrants</h1>
 
             <!-- Sidebar -->
             <div class="dashboard-sidebar p-8">
@@ -12,17 +12,12 @@
             <div class="dashboard-main p-8">
 
                   <!-- Title and controls -->
-                  <div class="flex flex-inline">
-                        <h2 class="text-2xl font-bold mb-3">Events</h2>
-                        <div class="controls ml-4 mb-8">
-                              <a href="" class="controls-add"><i class="icon ion-ios-add"></i></a>
-                        </div>
-                  </div>
+                  <h2 class="text-2xl font-bold mb-3">Registrants</h2>
                   
                   <!-- Events -->
                   <?php if (count($events) > 0) : foreach ($events as $key => $event) : ?>
 
-                              <a href="/dashboard/events/<?php echo $event['id'] ?>">
+                              <a href="/dashboard/registrants/<?php echo $event['id'] ?>">
                                     <article class="card p-6 shadow-md hover:shadow-lg">
                                           <h1 class="text-lg font-bold text-gray-700 flex flex-inline items-center align-center">
                                                 <?php echo $event['title'] ?>

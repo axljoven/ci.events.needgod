@@ -11,7 +11,7 @@
             <div class="dashboard-main p-8">
 
                   <?php if (isset($event)) : ?>
-                        <!-- Event title -->
+                        <!-- Event title and controls -->
                         <h2 class="text-2xl font-bold mb-3"><?php echo $event['title'] ?></h2>
                         <div class="controls mb-12">
                               <a href="" class="controls-add"><i class="icon ion-ios-add"></i></a>

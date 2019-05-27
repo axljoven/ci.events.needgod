@@ -60,4 +60,7 @@ $route['dashboard'] = 'dashboard';
 $route['dashboard/events'] = 'events/db_index';
 $route['dashboard/events/(:any)'] = 'events/db_single/$1';
 
+$route['dashboard/registrants'] = 'registrant/db_index';
+$route['dashboard/registrants/(:any)'] = 'registrant/db_single/$1';
+
 $route['default_controller'] = 'init';
