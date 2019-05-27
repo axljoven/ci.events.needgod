@@ -11,7 +11,6 @@
             <div class="dashboard-main p-8">
 
                   <?php if (isset($event)) : ?>
-                  <?php //bdump($event); ?>
                         <!-- Event title -->
                         <h2 class="text-2xl font-bold mb-3"><?php echo $event['title'] ?></h2>
                   <?php endif; ?>
@@ -20,12 +19,26 @@
                   <?php
                   $label = "block font-bold text-normal mb-2";
                   $input_container = "w-full mb-8";
-                  // $input_container_2_cols = "w-full sm:w-full md:w-1/2 mb-4 px-6";
-                  // $input_container_3_cols = "w-full sm:w-full md:w-1/3 mb-4 px-6";
                   $input_form = "border border-gray-400 w-full py-2 px-3 text-gray-700 text-sm";
                   ?>
 
                   <form action="" class="edit-event-form" method="post">
+
+                        <!-- Status -->
+                        <div class="<?php echo $input_container ?>">
+                              <label class="<?php echo $label ?>" for="status">Status</label>
+                              <select class="<?php echo $input_form ?>" id="status">
+                                    <option value="inactive" 
+                                          selected="<?php echo ($event['status'] === 'inactive') ? 'selected' : '' ?>">
+                                                Inactive
+                                    </option>
+                                    <option value="active" 
+                                          selected="<?php echo ($event['status'] === 'active') ? 'selected' : '' ?>">
+                                                Active
+                                    </option>
+                              </select>
+                        </div>
+                  
                         <!-- Title -->
                         <div class="<?php echo $input_container ?>">
                               <label class="<?php echo $label ?>" for="title">Title <span class="text-red-500">*</span> </label>
@@ -87,19 +100,24 @@
                               <input type="file" name="image" id="image">
                         </div>
 
-                        <!-- Start date -->
+                        <!-- Start / End date -->
                         <div class="<?php echo $input_container ?>">
                               <div class="block lg:flex flex-inline -mx-4">
+
+                                    <!-- Start date -->
                                     <div class="w-full px-4 mb-8 lg:mb-0">
                                           <label class="<?php echo $label ?>" for="date_start">Start date <span class="text-red-500">*</span> </label>
                                           <input class="<?php echo $input_form ?> datepicker" id="date_start" name="date_start" placeholder="Start date"
                                                 value="<?php echo $event['date_start'] ?>">
                                     </div>
+
+                                    <!-- End date -->
                                     <div class="w-full px-4 mb-8 lg:mb-0">
                                           <label class="<?php echo $label ?>" for="date_end">End date <span class="text-red-500">*</span> </label>
                                           <input class="<?php echo $input_form ?> datepicker" id="date_end" name="date_end" placeholder="End date"
                                                 value="<?php echo $event['date_end'] ?>">
                                     </div>
+
                               </div> <!-- flex -->
                         </div>
 
@@ -112,12 +130,8 @@
                               </textarea>
                         </div>
 
-                        
-
-
-
                   </form>
 
-            </div>
-      </div>
+            </div> <!-- dashboard-main -->
+      </div> <!-- flex flex-inline -->
 </div>
