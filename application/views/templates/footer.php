@@ -21,5 +21,7 @@
 	<script src="<?php echo site_url().'assets/js/reg-form.js' ?>"></script>
 	<script src="<?php echo site_url().'assets/js/tiny-mce.js' ?>"></script>
 	<script src="<?php echo site_url().'assets/js/datepicker.js' ?>"></script>
+	<script src="<?php echo site_url().'assets/js/jquery-pop-up.js' ?>"></script>
+	<script src="<?php echo site_url().'assets/js/pop-up.js' ?>"></script>
 </body>
 </html>
