@@ -23,7 +23,7 @@
                   
 
                   <?php if (isset($registrants)) : ?>
-                              <table id="registrants-table" class="w-full">
+                              <table id="registrants-table" class="w-full text-sm">
                                     <thead>
                                           <th class="text-left">Last name</th>
                                           <th class="text-left">First name</th>
@@ -44,7 +44,7 @@
                                                             <td><?php echo $reg['status'] ?></td>
                                                             <td>
                                                                   <a href="javascript:void(0)" data-pop-id="<?php echo $key ?>" class="<?php echo $stat_class ?>">
-                                                                        <i class="icon ion-ios-create mr-1"></i> Change status
+                                                                        <i class="icon ion-ios-create"></i> Change status
                                                                   </a>
                                                                   <div id="popup<?php echo $key ?>" class="hidden p-8 round-lg bg-white shadow-md w-1/3">
                                                                         <h4 class="mb-4 font-bold text-lg">

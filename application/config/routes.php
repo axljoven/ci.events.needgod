@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route['404_override'] = '';
 // $route['translate_uri_dashes'] = FALSE;
 
-$route['login'] = 'init/login';
+$route['login'] = 'admin/index';
 $route['event/(:any)']['get'] = 'events/single/$1';
 $route['event/(:any)']['post'] = 'registrant/register/$1';
 

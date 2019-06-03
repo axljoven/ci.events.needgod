@@ -30,6 +30,9 @@
   width: 40px;
   height: 40px;
   margin-right: 5px;
+  padding: 10px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -42,9 +45,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px;
-  -webkit-transition: all .2s;
-  transition: all .2s;
 }
 
 .dashboard-main .controls-add .icon, .dashboard-main .controls-delete .icon {
@@ -60,5 +60,53 @@
 
 .dashboard-main .controls-delete:hover {
   background-color: #e74c3c;
+}
+
+.dashboard .dashboard-main table thead {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-bottom: 10px;
+}
+
+.dashboard .dashboard-main table th, .dashboard .dashboard-main table td {
+  padding: 10px;
+}
+
+.dashboard .dashboard-main table th {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.dashboard .dashboard-main table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.dashboard .dashboard-main table .icon:before {
+  font-size: 1rem;
+}
+
+#main {
+  margin-top: 50px;
+}
+
+.site-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.page-login .form-container {
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=app.css.map */

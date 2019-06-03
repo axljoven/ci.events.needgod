@@ -12,7 +12,6 @@
 
                   <!-- Title and controls -->
                   <h2 class="text-2xl font-bold mb-3">Events</h2>
-
                   <div class="controls mb-8">
                         <a href="" class="controls-add"><i class="icon ion-ios-add"></i></a>
                   </div>
