@@ -52,9 +52,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $route['404_override'] = '';
 // $route['translate_uri_dashes'] = FALSE;
 
-$route['login'] = 'admin/index';
 $route['event/(:any)']['get'] = 'events/single/$1';
 $route['event/(:any)']['post'] = 'registrant/register/$1';
+
+$route['login']['get'] = 'admin/login';
+$route['logout'] = 'admin/logout';
+$route['login']['post'] = 'admin/authenticate';
 
 $route['dashboard'] = 'dashboard';
 $route['dashboard/events'] = 'events/db_index';
@@ -62,5 +65,6 @@ $route['dashboard/events/(:any)'] = 'events/db_single/$1';
 
 $route['dashboard/registrants'] = 'registrant/db_index';
 $route['dashboard/registrants/(:any)'] = 'registrant/db_single/$1';
+$route['dashboard/registrants/update/status/(:any)']['post'] = 'registrant/update_status/$1';
 
 $route['default_controller'] = 'init';

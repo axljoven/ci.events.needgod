@@ -55,5 +55,17 @@ $config = [
                   ),
                   'rules' => 'trim|required|min_length[2]|is_unique[registrants.email_per_event_key]',
             ]
+      ],
+      "login" => [
+            [
+                  'field' => 'username',
+                  'label' => 'username',
+                  'rules' => 'trim|required|min_length[2]'
+            ],
+            [
+                  'field' => 'password',
+                  'label' => 'password',
+                  'rules' => 'trim|required|min_length[2]'
+            ]
       ]
 ];

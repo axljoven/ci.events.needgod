@@ -52,7 +52,8 @@
                                                                               <?php echo $reg['lastname'] . ', ' . $reg['firstname'] . ' ' . $reg['middlename'] ?>
                                                                         </h4>
 
-                                                                        <form action="">
+                                                                        <form action="/dashboard/registrants/update/status/<?php echo $event['id'] ?>" method="POST">
+                                                                              <input type="hidden" id="reg_id" name="reg_id" value="<?php echo $reg['id'] ?>">
                                                                               <select name="status" id="status" class="border border-gray-400 w-full py-2 px-3 text-gray-700 text-sm mb-3">
                                                                                     <option value="initial" <?php echo ($reg['status'] === 'initial') ? 'selected' : '' ?>>Initial</option>
                                                                                     <option value="paid" <?php echo ($reg['status'] === 'paid') ? 'selected' : '' ?>>Paid</option>

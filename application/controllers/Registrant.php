@@ -105,8 +105,6 @@ class Registrant extends CI_Controller
 
 	public function db_single($event_id)
 	{	
-		// Get event name
-
 		// Get registrants
 		$data['event'] = $this->event->fetch($event_id);
 		if (empty($data['event'])) :
@@ -119,5 +117,20 @@ class Registrant extends CI_Controller
 		$this->load->view('templates/header', $data);
 		$this->load->view('dashboard/registrants/single', $data);
 		$this->load->view('templates/footer', $data);
+	}
+
+
+	//
+	// Update registrant status
+	//
+
+	public function update_status($event_id)
+	{
+		$reg_id = $this->input->post('reg_id');
+		$new_status = $this->input->post('status');
+
+		$this->registrant->update_status($reg_id, $new_status);
+		redirect('/dashboard/registrants/'.$event_id);
+
 	}
 }

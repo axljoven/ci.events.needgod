@@ -72,4 +72,14 @@ class Registrant_model extends CI_Model
 		return $result->result_array();
 	}
 
+	//
+	// Update Status
+	//
+
+	public function update_status($reg_id, $new_status)
+	{	
+		$this->db->where('id', $reg_id);
+		$this->db->update('registrants', ['status' => $new_status]);
+	}
+
 }

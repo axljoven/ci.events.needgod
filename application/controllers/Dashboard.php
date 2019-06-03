@@ -3,18 +3,29 @@
 class Dashboard extends CI_Controller
 {
       public function __construct()
-      {
+      {     
             parent::__construct();
             $this->load->model('event_model', 'event');
             $this->load->model('registrant_model', 'registrant');
+            $this->load->library('session');
       }
 
-      //
-      // Dashboard index page
-      //
+      public function check_existing_session()
+      {
+            // Check if logged in 
+            if ( !$this->session->has_userdata('logged_in') && !$this->session->has_userdata('username') ) : 
+                  redirect('login'); 
+            endif; 
+      }
 
-      public function index()
+      // 
+      // Dashboard index page
+      // 
+
+      public function index() 
       {     
+            $this->check_existing_session();
+
             // Loop through active events
             $events = [];
             $result = $this->event->get_active_events();
