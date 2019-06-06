@@ -67,5 +67,62 @@ $config = [
                   'label' => 'password',
                   'rules' => 'trim|required|min_length[2]'
             ]
+      ],
+      "update_event" => [
+            [
+                  'field' => 'title',
+                  'label' => 'Title',
+                  'rules' => 'trim|required|min_length[5]'
+            ],
+            [
+                  'field' => 'status',
+                  'label' => 'Status',
+                  'rules' => 'trim|required'
+            ],
+            [
+                  'field' => 'details',
+                  'label' => 'Details',
+                  'rules' => 'trim|required|min_length[10]'
+            ],
+            [
+                  'field' => 'speakers',
+                  'label' => 'Speakers',
+                  'rules' => 'trim|required'
+            ],
+            [
+                  'field' => 'venue',
+                  'label' => 'Venue',
+                  'rules' => 'trim|required|min_length[10]'
+            ],
+            [
+                  'field' => 'reg_fee',
+                  'label' => 'Registration fee',
+                  'rules' => 'trim|required|numeric'
+            ],
+            [
+                  'field' => 'reg_fee_details',
+                  'label' => 'Registration fee details',
+                  'rules' => 'trim|required|min_length[2]'
+            ],
+            [
+                  'field' => 'image',
+                  'label' => 'Banner image',
+                  'rules' => 'trim'
+            ],
+            [
+                  'field' => 'date_start',
+                  'label' => 'Date start',
+                  'rules' => 'trim|required'
+            ],
+            [
+                  'field' => 'date_end',
+                  'label' => 'Date end',
+                  'rules' => 'trim|required'
+            ],
+            [
+                  'field' => 'date',
+                  'label' => 'Date details',
+                  'rules' => 'trim|required'
+            ],
       ]
 ];
