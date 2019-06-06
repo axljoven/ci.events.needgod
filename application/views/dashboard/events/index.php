@@ -39,6 +39,8 @@
                               
                   <?php endif; ?>
 
+                  <div class="mt-8"><?php bdump($misc) ?></div>
+
             </div>
       </div>
 </div>

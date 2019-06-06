@@ -10,7 +10,9 @@
 	<div class="container mx-auto px-6">
 		<h1 class="hidden">Home</h1>
 		<?php foreach ($events as $key => $event) :
-			include(APPPATH."views/templates/event_card.php");
+			if ($event['status'] == 'active') :
+				include(APPPATH."views/templates/event_card.php");
+			endif;
 		endforeach; ?>
 	</div>
 </div>

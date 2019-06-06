@@ -1,9 +1,25 @@
+.bg-orange {
+  background-color: #f39c12;
+}
+
+.bg-green {
+  background-color: #2ecc71;
+}
+
+.bg-asphalt {
+  background-color: #34495e;
+}
+
 .icon {
   width: 25px;
 }
 
 .icon::before {
   font-size: 1.3rem;
+}
+
+.event-card-details p {
+  margin-bottom: 20px;
 }
 
 .dashboard-sidebar {

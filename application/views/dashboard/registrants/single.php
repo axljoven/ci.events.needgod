@@ -41,7 +41,7 @@
                                                             <td><?php echo $reg['firstname'] ?></td>
                                                             <td><?php echo $reg['email'] ?></td>
                                                             <td><?php echo $reg['church_name'] ?></td>
-                                                            <td><?php echo $reg['status'] ?></td>
+                                                            <td><?php echo badge_color_generator($reg['status']) ?></td>
                                                             <td>
                                                                   <a href="javascript:void(0)" data-pop-id="<?php echo $key ?>" class="<?php echo $stat_class ?>">
                                                                         <i class="icon ion-ios-create"></i> Change status
@@ -74,6 +74,7 @@
                               <p>No registrants yet.</p>
                   <?php endif; ?>
 
+                  <div class="mt-8"><?php bdump($misc) ?></div>
                   
 
             </div> <!-- dashboard-main -->

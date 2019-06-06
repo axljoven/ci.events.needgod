@@ -19,6 +19,13 @@
                         </div>
                   <?php endif; ?>
 
+                  <!-- Validation errors -->
+                  <?php if (validation_errors()) : ?>
+                        <div class="validation-errors py-4 px-5 bg-red-600 text-white text-sm mb-6">
+                              <?php echo validation_errors() ?>
+                        </div>
+                  <?php endif; ?>
+
                   <!-- Edit form -->
                   <?php
                   $label = "block font-bold text-normal mb-2";
@@ -26,12 +33,14 @@
                   $input_form = "border border-gray-400 w-full py-2 px-3 text-gray-700 text-sm";
                   ?>
 
-                  <form action="" class="edit-event-form" method="post">
+                  <form action="/dashboard/events/<?php echo $event['id'] ?>" 
+                        class="edit-event-form" 
+                        method="post">
 
                         <!-- Status -->
                         <div class="<?php echo $input_container ?>">
                               <label class="<?php echo $label ?>" for="status">Status</label>
-                              <select class="<?php echo $input_form ?>" id="status">
+                              <select class="<?php echo $input_form ?>" id="status" name="status">
                                     <option value="inactive" <?php echo ($event['status'] === 'inactive') ? 'selected' : '' ?>>
                                           Inactive
                                     </option>
@@ -141,6 +150,8 @@
                         </div>
 
                   </form>
+
+                  <div class="mt-8"><?php bdump($misc) ?></div>
 
             </div> <!-- dashboard-main -->
       </div> <!-- flex flex-inline -->

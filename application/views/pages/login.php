@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="page-login">
+<div class="page-login pt-12">
 	<div class="form-container mx-auto p-4 w-full lg:p-0 lg:w-2/5 flex flex-col aligns-center content-center">
 		<h1 class="text-2xl font-bold mb-8 border-b-2 border-gray-200 pb-4">Login page</h1>
 
@@ -44,6 +44,8 @@
                         </button>
                   </div>
 		</form>
+
+		<div class="mt-8"><?php bdump($misc) ?></div>
 
 	</div> <!-- form-container -->
 </div> <!-- page-login -->

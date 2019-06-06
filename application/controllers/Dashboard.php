@@ -8,15 +8,25 @@ class Dashboard extends CI_Controller
             $this->load->model('event_model', 'event');
             $this->load->model('registrant_model', 'registrant');
             $this->load->library('session');
+            $this->load->helper('url');
       }
+
+
+
+      //
+      // Check existing session
+      //
 
       public function check_existing_session()
       {
             // Check if logged in 
-            if ( !$this->session->has_userdata('logged_in') && !$this->session->has_userdata('username') ) : 
-                  redirect('login'); 
+            if (  !$this->session->has_userdata('logged_in') && 
+                  !$this->session->has_userdata('username') ) : 
+                        redirect('login'); 
             endif; 
       }
+
+
 
       // 
       // Dashboard index page
@@ -40,6 +50,10 @@ class Dashboard extends CI_Controller
 
             $data['events'] = $events;
             $data['title'] = "Welcome | Dashboard";
+            $data['misc'] = [
+                  'logged_in' => $this->session->userdata('logged_in'),
+                  'username' => $this->session->userdata('username'),
+            ];
             
             // Load view
             $this->load->view('templates/header', $data);

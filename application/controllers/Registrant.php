@@ -7,8 +7,12 @@ class Registrant extends CI_Controller
 		parent::__construct();
 		$this->load->model('event_model', 'event');
 		$this->load->model('registrant_model', 'registrant');
+		$this->load->library('session');
+		$this->load->helper('url');
 	}
 
+
+	
 	//
 	// Register
 	//
@@ -51,6 +55,8 @@ class Registrant extends CI_Controller
 		}
     	}
 
+
+
 	//
 	// NOTE: Coming soon!
 	// Send confirmation email
@@ -73,9 +79,27 @@ class Registrant extends CI_Controller
 		// Check if email sending is successful
 	}
 
+
+
 	// ======================================================================
 	// NOTE: DASHBOARD FUNCTIONS
 	// ======================================================================
+
+
+
+      //
+      // Check existing session
+      //
+
+	public function check_existing_session()
+      {
+            // Check if logged in 
+            if ( !$this->session->has_userdata('logged_in') && !$this->session->has_userdata('username') ) : 
+                  redirect('login'); 
+            endif; 
+      }
+
+
 
 	//
 	// Dashboard's main regigistrants page
@@ -84,6 +108,8 @@ class Registrant extends CI_Controller
 	
 	public function db_index()
 	{
+		$this->check_existing_session();
+		
 		// Fetch events and include register count
 		$events = $this->event->fetch();
 		foreach ($events as $key => $event) :
@@ -92,12 +118,18 @@ class Registrant extends CI_Controller
 
 		$data['events'] = $events;
 		$data['title'] = 'Dashboard | Registrants';
+		$data['misc'] = [
+                  'logged_in' => $this->session->userdata('logged_in'),
+                  'username' => $this->session->userdata('username'),
+            ];
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('dashboard/registrants/index', $data);
 		$this->load->view('templates/footer', $data);
 	}
 		
+
+
 	//
 	// Regigistrants page per event
 	// NOTE: Lists all registrants under an event
@@ -105,6 +137,8 @@ class Registrant extends CI_Controller
 
 	public function db_single($event_id)
 	{	
+		$this->check_existing_session();
+
 		// Get registrants
 		$data['event'] = $this->event->fetch($event_id);
 		if (empty($data['event'])) :
@@ -113,11 +147,16 @@ class Registrant extends CI_Controller
 		
 		$data['registrants'] = $this->registrant->get_registrants($event_id);
 		$data['title'] = 'Dashboard | Registrants';
+		$data['misc'] = [
+                  'logged_in' => $this->session->userdata('logged_in'),
+                  'username' => $this->session->userdata('username'),
+            ];
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('dashboard/registrants/single', $data);
 		$this->load->view('templates/footer', $data);
 	}
+
 
 
 	//
@@ -126,6 +165,8 @@ class Registrant extends CI_Controller
 
 	public function update_status($event_id)
 	{
+		$this->check_existing_session();
+
 		$reg_id = $this->input->post('reg_id');
 		$new_status = $this->input->post('status');
 

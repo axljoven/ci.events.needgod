@@ -35,4 +35,29 @@ class Event_model extends CI_Model
 		$result = $this->db->get_where('events', ['status' => 'active']);
 		return $result->result_array();
 	}
+
+
+	// ======================================================================
+	// NOTE: DASHBOARD FUNCTIONS
+	// ======================================================================
+	
+	public function update($event_id) 
+	{
+		$updated_data = [
+			'title' 		=> trim( $this->input->post('title') ),
+			'status' 		=> trim( $this->input->post('status') ),
+			'details' 		=> trim( $this->input->post('details') ),
+			'speakers' 		=> trim( $this->input->post('speakers') ),
+			'venue' 		=> trim( $this->input->post('venue') ),
+			'reg_fee' 		=> trim( $this->input->post('reg_fee') ),
+			'reg_fee_details' => trim( $this->input->post('reg_fee_details') ),
+			'image' 		=> trim( $this->input->post('image') ),
+			'date_start' 	=> trim( $this->input->post('date_start') ),
+			'date_end' 		=> trim( $this->input->post('date_end') ),
+			'date' 		=> trim( $this->input->post('date') )
+		];
+
+		$this->db->where('id', $event_id);
+		$this->db->update('events', $updated_data);
+	}
 }

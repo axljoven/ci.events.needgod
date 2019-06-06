@@ -56,12 +56,13 @@ $route['event/(:any)']['get'] = 'events/single/$1';
 $route['event/(:any)']['post'] = 'registrant/register/$1';
 
 $route['login']['get'] = 'admin/login';
-$route['logout'] = 'admin/logout';
+$route['logout']['get'] = 'admin/logout';
 $route['login']['post'] = 'admin/authenticate';
 
 $route['dashboard'] = 'dashboard';
 $route['dashboard/events'] = 'events/db_index';
-$route['dashboard/events/(:any)'] = 'events/db_single/$1';
+$route['dashboard/events/(:any)']['get'] = 'events/db_single/$1';
+$route['dashboard/events/(:any)']['post'] = 'events/db_update/$1';
 
 $route['dashboard/registrants'] = 'registrant/db_index';
 $route['dashboard/registrants/(:any)'] = 'registrant/db_single/$1';
