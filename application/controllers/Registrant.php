@@ -1,177 +1,158 @@
 <?php
 
-class Registrant extends CI_Controller
-{
-	public function __construct()
-	{
+class Registrant extends CI_Controller {
+
+	public function __construct() {
 		parent::__construct();
+		$this->load->helper('url');
 		$this->load->model('event_model', 'event');
 		$this->load->model('registrant_model', 'registrant');
 		$this->load->library('session');
-		$this->load->helper('url');
 	}
-
-
 	
-	//
-	// Register
-	//
-
-	public function register($event_id) 
-	{
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+	/**
+	 * ------------------------------------------------------------
+	 * Register new
+	 * ------------------------------------------------------------
+	 */
+	
+	public function register( $event_id ) {
+		$this->load->helper( 'form' );
+		$this->load->library( 'form_validation' );
 		
-		if ($this->form_validation->run('registration') == FALSE) 
-		{
-			// validation failed
-			$data['event'] = $this->event->fetch($event_id);
-			$data['title'] = "Event | " .$data['event']['title'];
+		// If validation failed, return to registration page
+		if ( $this->form_validation->run( 'registration' ) == FALSE ) :
+			$data['event'] = $this->event->fetch( $event_id );
+			$data['title'] = "Event | " . $data['event']['title'];
+			$this->load->view( 'templates/header', $data );
+			$this->load->view( 'pages/events/single', $data );
+			$this->load->view( 'templates/footer', $data );
 			
-			// Load view
-			$this->load->view('templates/header', $data);
-			$this->load->view('pages/events/single', $data);
-			$this->load->view('templates/footer', $data);
-		
-		} else 
-		{
-			// validation is a success 
-			$data['event'] = $this->event->fetch($event_id);
-			$data['title'] = "Registered | ".$data['event']['title'];
+		// If successful, send email and save to DB
+		else :
+			$data['event'] = $this->event->fetch( $event_id );
+			$data['title'] = "Registered | " . $data['event']['title'];
 			$data['name'] = $data['event']['title'];
 			$data['id'] = $data['event']['id'];
-			
-			// Send email
+				
+			// TODO: Send email
 			// NOTE: Coming soon!
-			// $this->send_confirm_email();
-			
-			// Save to database
-			$this->registrant->create(); // good!
-			
-			// Load view
-			$this->load->view('templates/header', $data);
-			$this->load->view('pages/events/reg-success', $data);
-			$this->load->view('templates/footer', $data);
-		}
-    	}
+			// $this->send_confirm_email();	
 
+			// Save to database and show success page
+			$this->registrant->create();
+			$this->load->view( 'templates/header', $data );
+			$this->load->view( 'pages/events/reg-success', $data );
+			$this->load->view( 'templates/footer', $data );
+		endif;
+	}
+		
+	/**
+	 * ------------------------------------------------------------
+	 * TODO: Coming soon!!! Send confirmation email
+	 * ------------------------------------------------------------
+	 * - Can't continue the development because the project
+	 * - hasn't been transfered to the server
+	 * 
+	 */
+		
+	private function send_confirm_email() {
+		$this->load->library( 'email' );
 
-
-	//
-	// NOTE: Coming soon!
-	// Send confirmation email
-	//
-
-	private function send_confirm_email()
-	{
-		$this->load->library('email');
-
-		$this->email->from('your@example.com', 'NeedGod Ministries');
-		$this->email->to('axlmorenojoven@gmail.com');
-		$this->email->cc('axl_joven@yahoo.com');
+		$this->email->from( 'your@example.com', 'NeedGod Ministries' );
+		$this->email->to( 'axlmorenojoven@gmail.com' );
+		$this->email->cc( 'axl_joven@yahoo.com' );
 		// $this->email->bcc('them@their-example.com');
-
-		$this->email->subject('Email Test');
-		$this->email->message('Testing the email class.');
-
+		
+		$this->email->subject( 'Email Test' );
+		$this->email->message( 'Testing the email class.' );
 		$this->email->send();
-
+		
 		// Check if email sending is successful
 	}
 
+	/**
+	 * ================================================================================
+	 * NOTE: DASHBOARD FUNCTIONS
+	 * ================================================================================
+	 */
 
-
-	// ======================================================================
-	// NOTE: DASHBOARD FUNCTIONS
-	// ======================================================================
-
-
-
-      //
-      // Check existing session
-      //
-
-	public function check_existing_session()
-      {
-            // Check if logged in 
-            if ( !$this->session->has_userdata('logged_in') && !$this->session->has_userdata('username') ) : 
-                  redirect('login'); 
+	/**
+	 * ------------------------------------------------------------
+	 * Check existing session
+	 * ------------------------------------------------------------
+	 */
+	
+	public function check_existing_session() {
+		if ( !$this->session->has_userdata( 'logged_in' ) && !$this->session->has_userdata( 'username' ) ) : 
+                  redirect( 'login' ); 
             endif; 
       }
 
-
-
-	//
-	// Dashboard's main regigistrants page
-	// NOTE: Only shows the list of events
-	//
+	/**
+	 * ------------------------------------------------------------
+	 * Index Page
+	 * ------------------------------------------------------------
+	 * - Shows the lists of events with registrants count
+	 * 
+	 */
 	
-	public function db_index()
-	{
+	public function db_index() {
+		// Check session before proceeding    
 		$this->check_existing_session();
 		
 		// Fetch events and include register count
 		$events = $this->event->fetch();
-		foreach ($events as $key => $event) :
-			$events[$key]['reg_count'] = $this->registrant->get_count($event['id']);
+		foreach ( $events as $key => $event ) :
+			$events[ $key ][ 'reg_count' ] = $this->registrant->get_count( $event[ 'id' ] );
 		endforeach;
-
+		
 		$data['events'] = $events;
 		$data['title'] = 'Dashboard | Registrants';
-		$data['misc'] = [
-                  'logged_in' => $this->session->userdata('logged_in'),
-                  'username' => $this->session->userdata('username'),
-            ];
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('dashboard/registrants/index', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view( 'templates/header', $data );
+		$this->load->view( 'dashboard/registrants/index', $data );
+		$this->load->view( 'templates/footer', $data );
 	}
-		
-
-
-	//
-	// Regigistrants page per event
-	// NOTE: Lists all registrants under an event
-	//
-
-	public function db_single($event_id)
-	{	
+	
+	/**
+	 * ------------------------------------------------------------
+	 * Regigistrants page per event
+	 * ------------------------------------------------------------
+	 * - Shows registrants per event
+	 * 
+	 */
+	
+	public function db_single( $event_id ) {	
+		// Check session before proceeding    
 		$this->check_existing_session();
-
+		
 		// Get registrants
-		$data['event'] = $this->event->fetch($event_id);
-		if (empty($data['event'])) :
+		$data['event'] = $this->event->fetch( $event_id );
+		if ( empty( $data['event'] ) ) :
 			show_404();
 		endif;
-		
-		$data['registrants'] = $this->registrant->get_registrants($event_id);
+
+		$data['registrants'] = $this->registrant->get_registrants( $event_id );
 		$data['title'] = 'Dashboard | Registrants';
-		$data['misc'] = [
-                  'logged_in' => $this->session->userdata('logged_in'),
-                  'username' => $this->session->userdata('username'),
-            ];
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('dashboard/registrants/single', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view( 'templates/header', $data );
+		$this->load->view( 'dashboard/registrants/single', $data );
+		$this->load->view( 'templates/footer', $data );
 	}
+	
+	/**
+	 * ------------------------------------------------------------
+	 * Update registrant status
+	 * ------------------------------------------------------------
+	 */
 
-
-
-	//
-	// Update registrant status
-	//
-
-	public function update_status($event_id)
-	{
+	public function update_status( $event_id ) {
+		// Check session before proceeding    
 		$this->check_existing_session();
 
 		$reg_id = $this->input->post('reg_id');
 		$new_status = $this->input->post('status');
-
 		$this->registrant->update_status($reg_id, $new_status);
-		redirect('/dashboard/registrants/'.$event_id);
 
+		redirect('/dashboard/registrants/'.$event_id);
 	}
 }

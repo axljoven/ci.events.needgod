@@ -1,35 +1,34 @@
 <?php
 
-class Registrant_model extends CI_Model
-{
-	public function __construct()
-	{
+class Registrant_model extends CI_Model {
+
+	public function __construct() {
 		parent::__construct();
 		$this->load->database();
 	}
 	
-	// 
-	// Fetch all registrants or by ID
-	// 
-
-	public function fetch($id = NULL)
-	{
-		if ($id == NULL) :
-			$result = $this->db->get('registrants');
+	/**
+	 * ------------------------------------------------------------
+	 * Fetch registrant / registrants
+	 * ------------------------------------------------------------
+	 */ 
+	
+	public function fetch( $id = NULL ) {
+		if ( $id == NULL ) :
+			$result = $this->db->get( 'registrants' );
 			return $result->result_array();
 		endif;
-
-		$result = $this->db->get_where('registrants', ['id' => $id]);
+		$result = $this->db->get_where( 'registrants', ['id' => $id] );
 		return $result->row_array();
 	}
-
-	//
-	// Create/save new registrant
-	//
-
-	public function create()
-	{
-		// automatically gets the $_POST fields
+	
+	/**
+	 * ------------------------------------------------------------
+	 * Create/save new registrant
+	 * ------------------------------------------------------------
+	 */
+	
+	public function create() {
 		$entry = [
 			"event_id" 			=> trim( $this->input->post( 'event_id' ) ),
 			"firstname" 		=> ucwords( strtolower( trim( $this->input->post( 'firstname' ) ) ) ),
@@ -44,42 +43,46 @@ class Registrant_model extends CI_Model
 			"role" 			=> strtolower( trim( $this->input->post( 'role' ) ) ),
 			"email_per_event_key" 	=> strtolower( trim( $this->input->post( 'email_per_event' ) ) )
 		];
-
-		return $this->db->insert('registrants', $entry);
+		return $this->db->insert( 'registrants', $entry );
 	}
-
-	//
-	// Get overall count of registrant per active event
-	//
-
-	public function get_count($event_id)
-	{
-		$result = $this->db->get_where('registrants', ['event_id' => $event_id]);
+	
+	/**
+	 * ------------------------------------------------------------
+	 * Get registrant count per event
+	 * ------------------------------------------------------------
+	 */
+	
+	public function get_count( $event_id ) {
+		$result = $this->db->get_where( 'registrants', ['event_id' => $event_id] );
 		return count($result->result_array());
 	}
-
-	// ======================================================================
-	// NOTE: DASHBOARD FUNCTIONS
-	// ======================================================================
-
-	//
-	// Get all registrants by event id
-	//
-
-	public function get_registrants($event_id)
-	{
-		$result = $this->db->get_where('registrants', ['event_id' => $event_id]);
+	
+	/**
+	 * ================================================================================
+	 * NOTE: DASHBOARD FUNCTIONS
+	 * ================================================================================
+	 */
+	
+	/**
+	 * ------------------------------------------------------------
+	 * Get registrants by event id
+	 * ------------------------------------------------------------
+	 */
+	
+	public function get_registrants( $event_id ) {
+		$result = $this->db->get_where( 'registrants', ['event_id' => $event_id] );
 		return $result->result_array();
 	}
+	
+	/**
+	 * ------------------------------------------------------------
+	 * Update single registrant status
+	 * ------------------------------------------------------------
+	 */
 
-	//
-	// Update Status
-	//
-
-	public function update_status($reg_id, $new_status)
-	{	
-		$this->db->where('id', $reg_id);
-		$this->db->update('registrants', ['status' => $new_status]);
+	public function update_status( $reg_id, $new_status ) {
+		$this->db->where( 'id', $reg_id );
+		$this->db->update( 'registrants', ['status' => $new_status] );
 	}
 
 }
